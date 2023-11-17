@@ -7,6 +7,12 @@ spring:
     url: jdbc:mysql://101.35.219.113:3306/businessdata?useUnicode=true&characterEncoding=gbk&autoReconnect=true&failOverReadOnly=false
     username: javauser
     password: javauser
+    hikari:
+      connection-timeout: 20000
+      connection-test-query: select 1
+      maximum-pool-size: 5
+      auto-commit: true
+
   jackson:
     time-zone: Asia/Shanghai
     date-format: yyyy-MM-dd HH:mm:ss
