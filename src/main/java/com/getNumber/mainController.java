@@ -6,6 +6,7 @@ import com.alibaba.fastjson2.JSONObject;
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.coyote.Response;
@@ -32,7 +33,7 @@ public class mainController {
     @Operation(summary = "取号", method = "POST")
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public JSONObject getNumberController(@Parameter(hidden = true) HttpServletRequest httpServletRequest, @RequestBody JSONObject req, @Parameter(hidden = true) Response res){
+    public JSONObject getNumberController(@Parameter(hidden = true) HttpServletRequest httpServletRequest, @Schema(type ="json",example = "{\"type\":[\"default\"]}") @RequestBody JSONObject req, @Parameter(hidden = true) Response res){
         if (req == null) {
             res.setMessage("param error");
             return null;
